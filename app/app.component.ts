@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
+
 @Component({
   selector: 'my-app',
   template: `
@@ -66,6 +67,7 @@ import { HeroService } from './hero.service';
   `],
   providers: [HeroService]
 })
+
 export class AppComponent implements OnInit {
   title = 'Tour of Heroes';
   heroes: Hero[];
@@ -74,6 +76,7 @@ export class AppComponent implements OnInit {
   constructor(private heroService: HeroService) { }
   getHeroes(): void {
     this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+    //this.heroService.getHeroesSlowly().then(heroes => this.heroes = heroes); // getHeroesSlowly() hat 2 Sekunden Verzögerung eingebaut.
   }
 
   ngOnInit(): void {
